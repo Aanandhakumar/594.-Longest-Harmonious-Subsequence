@@ -1,0 +1,20 @@
+594. Longest Harmonious Subsequence in java ....
+
+
+class Solution {
+    public int findLHS(int[] nums) {
+        Arrays.sort(nums);
+        int left = 0;
+        int maxlen = 0;
+        for(int right = 1; right<nums.length; right++){
+            while(nums[right]-nums[left]>1){
+                left++;
+            }
+            if(nums[right]-nums[left]==1){
+                int len = right -left +1;
+                maxlen = Math.max(len,maxlen);
+            }
+        }
+        return maxlen;
+    }
+}
